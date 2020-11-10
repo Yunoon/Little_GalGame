@@ -1,0 +1,27 @@
+import re
+
+class chooseindex(object):
+	def __init__(self,return_index,num):
+		self.return_index = None
+		self.num = None
+	def chooseBG(self):
+		pat = r'\[background=\'(.+?)\'\]'
+		result = re.compile(pat,re.M)
+		findall_result = result.findall(self.return_index[self.num])
+		str_result = "".join(findall_result)
+		return str_result
+	def chooseText(self):
+		pat = r'\<(.+?)\>'
+		result = re.compile(pat1,re.M)
+		findall_result = result.findall(self.return_index[self.num])
+		str_result = "".join(findall_result)
+		return str_result
+	def chooseBGM(self):
+		pat = r'\[BGM = \'(.+?)\'\]'
+		result = re.compile(pat,re.M)
+		findall_result = result.findall(self.return_index[self.num])
+		str_result = "".join(findall_result)
+		return str_result
+	def set(self,return_index=None,num=None):
+		self.return_index = return_index
+		self.num = num

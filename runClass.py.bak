@@ -1,0 +1,35 @@
+class runclass(object):
+	def __init__(self,bgimg,init_bg,bgmusic,index):
+		self.bgimg = None
+		self.init_bg = None
+		self.bgmusic = None
+		self.index = None
+	def updateBG(self):
+		if self.bgimg == "":
+			pass
+		else:
+			bg = pygame.image.load(self.bgimg).convert()
+			width,height = self.init_bg.get_size()
+			bg_cover = pygame.transform.scale(bg,(width,height))
+			screen.blit(bg_cover,(0,0))
+	def updateBGM(self):
+		if self.bgmusic == "":
+			pass
+		else:
+			pygame.mixer.music.load(self.bgmusic)
+			pygame.mixer.music.play(-1)
+	def updateText(self):
+		if self.index == "":
+			pass
+		else:	
+			surface = pygame.Surface((640,400))
+			surface.fill((255,255,255))
+			surface.set_alpha(150)
+			text_surface = font.render(self.index,True,(0,0,255))
+			return text_surface
+	def set(self,bgimg=None,init_bg=None,bgmusic=None,index=None):
+		self.bgimg = bgimg
+		self.init_bg = init_bg
+		self.bgmusic = bgmusic
+		self.index = index
+	
